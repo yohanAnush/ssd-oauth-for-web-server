@@ -2,10 +2,7 @@
 This app saves simply notes as files, to google drive. It uses OAuth2 with Google's own googleapi module. This is a NodeJS project.
 
 ### How to Build.
-Move into app-server folder. It's where all the components are. <br>
-`cd app-server`
-
-And then, install NPM modules.<br>
+Install NPM modules.<br>
 `npm install`
 
 Finally, start the node server with,<br>
