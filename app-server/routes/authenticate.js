@@ -11,6 +11,23 @@ const REDIRECT_URI = 'http://localhost:3000/authenticate';
 const ACCESS_TYPE = 'offline'
 
 /*
+ * Google OAuth API will redirect here.
+ * Sample url:- localhost/authenticate?code=<token>&scope=<access scope>
+ * Use the value under 'code' query parameter in order to send further requests,
+ * to Google APIs.
+ * For ease of use, this token is stored as a cookie named 'gToken'.
+ * 
+ * User is then redirected to a usable screen.
+ */
+router.get('/', (req, res, next) => {
+  var token = req.query.code;
+  
+  // Set session cookie - encrypted.
+  res.cookie('gToken', token);
+  res.redirect('/note');
+});
+
+/*
  * Send authentication url to the client.
  * This URL is used as a redirection to google's sign in page,
  * and once completed, will be redirected to /authenticate ^
