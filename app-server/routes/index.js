@@ -16,4 +16,6 @@ router.get('/auth-error', (req, res, next) => {
   res.send('<script>window.location.href = "auth-error.html"</script>');
 });
 
+
+
 module.exports = router;

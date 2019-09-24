@@ -1,10 +1,10 @@
 
 const url = require('url');
-const session = require('express-session');
 const createError = require('http-errors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const logger = require('morgan');
 const express = require('express');
 
@@ -22,7 +22,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cookieParser('123dft423df'));
+
+app.use(cookieParser());
+app.use(session({
+  key: 'uid',
+  secret: '123',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    expires: 3600
+  }
+}))
 
 app.use('/', indexRouter);
 app.use('/authenticate', authenticateRouter);
