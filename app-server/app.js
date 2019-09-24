@@ -10,6 +10,7 @@ const express = require('express');
 
 const indexRouter = require('./routes/index');
 const authenticateRouter = require('./routes/authenticate');
+const noteRouter = require('./routes/note');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(cookieParser('123dft423df'));
 
 app.use('/', indexRouter);
 app.use('/authenticate', authenticateRouter);
+app.use('/note', noteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

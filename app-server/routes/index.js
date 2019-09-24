@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
   res.sendFile('../public/index.html');
 });
 
-/* Send other pages. */
+/* Send note page. */
 router.get('/note', (req, res, next) => {
   res.send('<script>window.location.href = "note.html"</script>');
 });
