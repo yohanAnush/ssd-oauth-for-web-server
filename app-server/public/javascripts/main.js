@@ -16,5 +16,17 @@ function handleLogin() {
 }
 
 function postNote() {
+    var title = document.getElementById('note-title').value;
     var content = document.getElementById('note-text').value;
+
+    axios.post('http://localhost:3000/note', { title: title, content: content })
+    .then(response => {
+        // If successful, go to note taking page.
+        if (response.data) {
+            console.log(response.data);
+        }
+    })
+    .catch(reject => {
+        console.log(reject);
+    });
 }

@@ -12,7 +12,7 @@ const CLIENT_ID =
   "665544571310-iaus1nm279n78gdn6hng18t8f6mboosq.apps.googleusercontent.com";
 const CLIENT_SECRET = "Ro8VmtbfLrKl-JgLK7PHTanD";
 const RESPONSE_TYPE = "code";
-const SCOPE = "https://www.googleapis.com/auth/drive.file";
+const SCOPE = "https://www.googleapis.com/auth/drive.readonly";
 const REDIRECT_URI = "http://localhost:3000/authenticate";
 const ACCESS_TYPE = "offline";
 
@@ -40,7 +40,7 @@ router.get("/", (req, res, next) => {
       var access_token = token.access_token;
       
       // Set cookies for necessary routes.
-      res.cookie('token', access_token, {path: '/upload'});
+      res.cookie('token', access_token, {path: '/note'});
       res.cookie('token', access_token, {path: '/authenticate'});
       res.redirect('/note');
     })

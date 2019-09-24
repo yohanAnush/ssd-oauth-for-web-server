@@ -17,5 +17,4 @@ router.get('/auth-error', (req, res, next) => {
 });
 
 
-
 module.exports = router;
