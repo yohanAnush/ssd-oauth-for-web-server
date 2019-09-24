@@ -1,16 +1,19 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const url = require('url');
+const session = require('express-session');
+const createError = require('http-errors');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const express = require('express');
 
-var app = express();
+const indexRouter = require('./routes/index');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+
+const app = express();
+
+// Default view.
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
@@ -18,9 +21,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser('123dft423df'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
