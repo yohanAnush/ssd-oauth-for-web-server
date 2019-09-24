@@ -14,3 +14,7 @@ function handleLogin() {
         window.location.href = 'http://localhost:3000/auth-error';
     });
 }
+
+function postNote() {
+    var content = document.getElementById('note-text').value;
+}
